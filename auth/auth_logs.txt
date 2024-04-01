@@ -1,0 +1,16 @@
+2024.04.01, 05:55:31.0840 UTC -> AUTH app listening at http://localhost:5000
+2024.04.01, 05:55:49.0556 UTC -> [Mon Apr 01 2024 11:25:49 GMT+0530 (India Standard Time)] Accessing root endpoint
+2024.04.01, 05:56:02.0247 UTC -> [Mon Apr 01 2024 11:26:02 GMT+0530 (India Standard Time)] Accessing /auth endpoint
+2024.04.01, 08:40:13.0631 UTC -> AUTH app listening at http://localhost:5000
+2024.04.01, 08:40:19.0247 UTC -> Accessing /auth endpoint
+2024.04.01, 08:41:38.0181 UTC -> Accessing root endpoint
+2024.04.01, 08:42:52.0929 UTC -> AUTH app listening at http://localhost:5000
+2024.04.01, 08:42:56.0891 UTC -> Accessing root endpoint
+2024.04.01, 08:42:56.0899 UTC -> [Mon Apr 01 2024 14:12:56 GMT+0530 (India Standard Time)] GET / responded with status 200 in 8 ms
+2024.04.01, 08:43:25.0690 UTC -> AUTH app listening at http://localhost:5000
+2024.04.01, 08:43:34.0005 UTC -> Accessing root endpoint
+2024.04.01, 08:43:34.0013 UTC -> GET / responded with status 200 in 8 ms
+2024.04.01, 08:43:54.0633 UTC -> Accessing /auth endpoint
+2024.04.01, 08:43:54.0635 UTC -> GET /auth responded with status 200 in 2 ms
+2024.04.01, 08:44:07.0487 UTC -> Unknown endpoint: GET /aut
+2024.04.01, 08:44:07.0488 UTC -> GET /aut responded with status 404 in 2 ms

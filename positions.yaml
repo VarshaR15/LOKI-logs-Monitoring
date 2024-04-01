@@ -1,0 +1,4 @@
+positions:
+  /auth_logs/auth/auth_logs.txt: "0"
+  /ecoms_logs/ecommerce/ecommerce_logs.txt: "0"
+  /oms_logs/oms/oms_logs.txt: "0"

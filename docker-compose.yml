@@ -1,0 +1,102 @@
+version: '3.8'
+volumes:
+  auth_logs:
+  ecoms_logs:
+  oms_logs:
+
+
+services:
+
+  nginx:
+    build: ./nginx
+    container_name: ms_nginx
+    links:
+      - auth:auth
+      - ecommerce:ecommerce
+      - oms:oms
+    ports:
+      - "8080:8080"
+    logging:
+      driver: loki
+      options:
+        loki-url: "http://192.168.0.104:3100/loki/api/v1/push"
+  auth:
+    build: ./auth
+    environment:
+      - SERVER_PORT=5000
+    # ports:
+    #   - "5000"
+    volumes:
+      - './auth:/usr/src/app'
+      - 'auth_logs:/usr/src/app'
+
+    logging:
+      driver: loki
+      options:
+        loki-url: "http://192.168.0.104:3100/loki/api/v1/push"
+  ecommerce:
+    build: ./ecommerce
+    environment:
+      - SERVER_PORT=7000
+    # ports:
+    #   - "7000"
+    volumes:
+      - './ecommerce:/usr/src/app'
+      - 'ecoms_logs:/usr/src/app'
+    logging:
+      driver: loki
+      options:
+        loki-url: "http://192.168.0.104:3100/loki/api/v1/push"
+  oms:
+    build: ./oms
+    environment:
+      - SERVER_PORT=8000
+    # ports:
+    #   - "8000"
+    volumes:
+      - './oms:/usr/src/app'
+      - 'oms_logs:/usr/src/app'
+    
+    logging:
+      driver: loki
+      options:
+        loki-url: "http://192.168.0.104:3100/loki/api/v1/push"
+
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./grafana/tmp:/var/lib/grafana
+      - ./grafana/grafana.ini:/etc/grafana/grafana.ini 
+    
+  loki:
+    image: grafana/loki:latest
+    container_name: loki
+    volumes:
+      - ./loki-data:/loki
+    networks:
+      - loki
+    ports:
+      - "3100:3100"
+
+  promtail:
+    image: grafana/promtail:latest
+    container_name: promtail
+    volumes:
+      - "/var/log:/var/log"
+      - "auth_logs:/auth_logs"
+      - "ecoms_logs:/ecoms_logs"
+      - "oms_logs:/oms_logs"
+      - "./positions.yaml:/tmp/positions_new.yaml"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "./promtail.yaml:/etc/promtail.yaml"
+    command: "-config.file=/etc/promtail.yaml"
+
+    networks:
+      - loki
+
+networks:
+  loki:
+    driver: bridge
