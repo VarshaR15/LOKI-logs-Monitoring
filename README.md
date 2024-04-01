@@ -23,7 +23,7 @@ Before proceeding with the installation, ensure that Docker and Docker Compose a
 
 <li> Setting Up the Nodejs Microservice:
 <p>NGNIX-MICROSERVICE is a simple microservices architecture using Nginx as a reverse proxy. Within this architecture,created three separate Node.js services: OMS (Order Management System), eCommerce, and Auth (Authentication). Each of these services will be containerized and run using Docker.</p>
-<p> NGNIX balances the rquests between all three servers and runs the microservice efficiently </p>
+<p> NGNIX balances the requests between all three servers and runs the microservice efficiently on the port 8080  </p>
 </li>
 <li> Build docker-compose file:
 
