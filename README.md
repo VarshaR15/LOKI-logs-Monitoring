@@ -73,7 +73,7 @@ networks:
 then perform 
 
 <pre><code>
-  docker compose up
+  docker compose up -d
 </code></pre>
 
 which starts the microservice
