@@ -54,7 +54,7 @@ Key Features: Promtail offers powerful log scraping capabilities, automatic log 
  
 </ul>
 
-<li><h2><setup and run Loki with Grafana Dashboard:- </h2></li>
+<li><h3> setup and run Loki with Grafana Dashboard:- </h3></li>
 
 <h3>Logging Configuration with Loki Driver:</h3>
 
@@ -124,7 +124,7 @@ With Loki configured as a datasource in Grafana, you can now start creating dash
 </ul>
 <li> Access both Docker containers logs and external log file:- </li>
 
-<li> Accessing Docker containers logs-</li>
+<p> Accessing Docker containers logs-</p>
 
 <p>After adding Loki data source using LogQL we can view the docker logs such as using below given query</p>
 
