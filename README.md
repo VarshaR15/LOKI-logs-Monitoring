@@ -10,7 +10,7 @@ Loki is designed to be very cost effective and highly scalable. Unlike other log
 
 <l3>Grafana integration - Loki integrates with Grafana, Mimir, and Tempo, providing a complete observability stack, and seamless correlation between logs, metrics and traces.</l3>
 
-## A Loki-based logging stack consists of 3 components:
+<h3>A Loki-based logging stack consists of 3 components:</h3>
 
 - promtail is the agent, responsible for gathering logs and sending them to Loki.
 - loki is the main server, responsible for storing logs and processing queries.
