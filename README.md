@@ -11,12 +11,13 @@ Loki is designed to be very cost effective and highly scalable. Unlike other log
 </ul>
 
 <h3>A Loki-based logging stack consists of 3 components:</h3>
+<ol>
+<li>promtail is the agent, responsible for gathering logs and sending them to Loki.</li>
+<li>loki is the main server, responsible for storing logs and processing queries.</li>
+<li>Grafana for querying and displaying the logs.</li>
+</ol>
+<h1>Steps to Setup LOKI</h1>
 
-- promtail is the agent, responsible for gathering logs and sending them to Loki.
-- loki is the main server, responsible for storing logs and processing queries.
-- Grafana for querying and displaying the logs.
-
-Installation using Docker Compose
 1. Prerequisites:
 Before proceeding with the installation, ensure that Docker and Docker Compose are installed on your system.
 
