@@ -1,4 +1,5 @@
-# Loki overview:
+# Loki overview: 
+
 
 Loki is a horizontally-scalable, highly-available, multi-tenant log aggregation system inspired by Prometheus. Loki differs from Prometheus by focusing on logs instead of metrics, and collecting logs via push, instead of pull.
 
