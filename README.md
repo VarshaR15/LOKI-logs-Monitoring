@@ -44,9 +44,9 @@ Key Features: Promtail offers powerful log scraping capabilities, automatic log 
  
 </ul>
 
-<li><h3> setup and run Loki with Grafana Dashboard:- </h3></li>
+<h2><li> setup and run Loki with Grafana Dashboard:- </li></h2>
 
-<h3>Logging Configuration with Loki Driver:</h3>
+<h3>Logging Configuration with Loki Driver:</h2>
 
 <p>To enable centralized logging with Loki for your server containers, you must add the following logging configuration to each server service definition in your Docker Compose file:</p>
 
@@ -98,12 +98,12 @@ In the list of available datasources, locate and click on "Loki".</li>
 
 <li>Configure Datasource:
 Configure the following settings for the Loki datasource:</li>
-<p>
-Name: Provide a name for the datasource (e.g., "Loki").
-URL: Enter the URL of the Loki API endpoint.(your IPaddrs: 3100)
-Save and Test:
+<ol>
+<li>Name: Provide a name for the datasource (e.g., "Loki").</li>
+<li>URL: Enter the URL of the Loki API endpoint.(your IPaddrs: 3100)</li>
+<li>Save and Test:</li>
 After configuring the datasource, click on the "Save & Test" button to save the configuration and test the connection to Loki.
-</p>
+</ol>
 <li>
 Verify Connection:
 Once saved, Grafana will test the connection to the Loki datasource. If the connection is successful, you will see a confirmation message indicating that the datasource is working.
@@ -112,7 +112,7 @@ Once saved, Grafana will test the connection to the Loki datasource. If the conn
 Start Visualizing Logs:
 With Loki configured as a datasource in Grafana, you can now start creating dashboards and visualizations to analyze logs from your applications.</li>
 </ul>
-<li> <h2>Access both Docker containers logs and external log file:- </h2> </li>
+<h2><li>Access both Docker containers logs and external log file:- </li></h2>
 
 <h3> Accessing Docker containers logs-</h3>
 
@@ -122,7 +122,7 @@ With Loki configured as a datasource in Grafana, you can now start creating dash
 {container_name="ms_nginx"} |= ``
 </code></pre>
 
-<h2>Accessing external log file-</h2>
+<h3>Accessing external log file-</h3>
 <p>
 Logging to External Files with logToFile Module
 The logToFile module provides a convenient way to log messages to external files within an application. By utilizing this module, developers can seamlessly write log messages to designated files, facilitating centralized logging across multiple components or servers.
@@ -148,7 +148,7 @@ res.on('finish', () => {
 <p>The logToFile module facilitates logging messages to external files within microservice architecture, generating separate log files for individual microservices such as auth_logs.txt, ecommerce_logs.txt, and oms_logs.txt.</p>
 
 
-<li>Volumes Configuration-</li>
+<h3>Volumes Configuration-</h3>
 <p>The Docker Compose file for your application includes volume configurations to enable data sharing between the host machine and the Docker containers. Here's a breakdown of the volumes specified in the configuration:</p>
 
 <p>First You need to create three volumes as auth_logs, ecoms_logs, oms_logs for three servers</p>
@@ -175,9 +175,9 @@ This volume mount attaches the Docker named volume oms_logs to the /usr/src/app 
       - "./promtail.yaml:/etc/promtail.yaml"
  </code></pre>
 </ul>
-<li>Configuring promtail.yaml :
+<h3>Configuring promtail.yaml : </h3>
 
-The Promtail configuration file defines settings for Promtail, a log shipping agent used in conjunction with Grafana Loki for collecting, processing, and forwarding logs. This document provides an overview of the key components and functionalities defined within the configuration. </li>
+<p>The Promtail configuration file defines settings for Promtail, a log shipping agent used in conjunction with Grafana Loki for collecting, processing, and forwarding logs. This document provides an overview of the key components and functionalities defined within the configuration. </p>
 
 
 <p>create a file as promatil.yaml and add the following code </p>
@@ -186,7 +186,7 @@ The Promtail configuration file defines settings for Promtail, a log shipping ag
 positions:
   filename: ./positions.yaml
 clients:
-  - url: http://192.168.0.104:3100/loki/api/v1/push
+  - url: http://localhost:3100/loki/api/v1/push
 scrape_configs:
   - job_name: auth_logs
     static_configs:
@@ -245,13 +245,13 @@ positions:
 <pre><code>
 {job="oms_logs"} |= ``
 </code></pre>
-<li> visualization for count of status code </li>
+<h3><li> visualization for count of status code </li></h3>
 
 <p>Middleware for Logging Status Code and Response Time</p>
 
-<p>This middleware logs the status code and response time of HTTP requests. It records the start time of request processing and captures the response details once the response is sent.
+<p>This middleware logs the status code and response time of HTTP requests. It records the start time of request processing and captures the response details once the response is sent.</p>
 
-Configure the below middleware in your server to get the status code </p>
+<p> Configure the below middleware in your server to get the status code </p>
 
 <pre><code>
 app.use((req, res, next) => {
@@ -283,6 +283,6 @@ By monitoring the frequency of these errors, system administrators can assess th
 rate({job="auth_logs"} |= `status 200` [1m])
 </code></pre>
 
-<p>The provided query calculates the rate of occurrences where the status code equals 200 within the "auth_logs" job over a 1-minute window. This metric offers insights into the frequency of successful responses generated by the authentication service within short intervals, aiding in real-time monitoring and performance assessment.</p>#   L O K I - l o g s - M o n i t o r i n g 
+<p>The provided query calculates the rate of occurrences where the status code equals 200 within the "auth_logs" job over a 1-minute window. This metric offers insights into the frequency of successful responses generated by the authentication service within short intervals, aiding in real-time monitoring and performance assessment.</p>
  
  </ul>
