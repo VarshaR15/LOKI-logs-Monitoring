@@ -22,18 +22,8 @@ Loki is designed to be very cost effective and highly scalable. Unlike other log
 Before proceeding with the installation, ensure that Docker and Docker Compose are installed on your system.</li>
 
 <li> Setting Up the Nodejs Microservice:
-NGNIX-MICROSERVICE is a simple microservices architecture using Nginx as a reverse proxy. Within this architecture,created three separate Node.js services: OMS (Order Management System), eCommerce, and Auth (Authentication). Each of these services will be containerized and run using Docker.
-Go to the project directory
-
-<pre><code> 
-  cd Ngnix-Microservices-example
-</code></pre>
-
-<p> Start the server </p>
-
-<pre><code>
-  docker compose up
-</code></pre>
+<p>NGNIX-MICROSERVICE is a simple microservices architecture using Nginx as a reverse proxy. Within this architecture,created three separate Node.js services: OMS (Order Management System), eCommerce, and Auth (Authentication). Each of these services will be containerized and run using Docker.</p>
+<p> NGNIX balances the rquests between all three servers and runs the microservice efficiently </p>
 </li>
 <li> Build docker-compose file:
 
