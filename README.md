@@ -112,9 +112,9 @@ Once saved, Grafana will test the connection to the Loki datasource. If the conn
 Start Visualizing Logs:
 With Loki configured as a datasource in Grafana, you can now start creating dashboards and visualizations to analyze logs from your applications.</li>
 </ul>
-<li> Access both Docker containers logs and external log file:- </li>
+<li> <h2>Access both Docker containers logs and external log file:- </h2> </li>
 
-<p> Accessing Docker containers logs-</p>
+<h3> Accessing Docker containers logs-</h3>
 
 <p>After adding Loki data source using LogQL we can view the docker logs such as using below given query</p>
 
